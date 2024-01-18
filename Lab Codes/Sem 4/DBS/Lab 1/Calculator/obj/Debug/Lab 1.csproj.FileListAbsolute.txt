@@ -1,0 +1,19 @@
+D:\220911478\Lab 1\Lab 1\bin\Debug\Lab 1.exe.config
+D:\220911478\Lab 1\Lab 1\bin\Debug\Lab 1.exe
+D:\220911478\Lab 1\Lab 1\bin\Debug\Lab 1.pdb
+D:\220911478\Lab 1\Lab 1\obj\Debug\Lab 1.csprojResolveAssemblyReference.cache
+D:\220911478\Lab 1\Lab 1\obj\Debug\Lab_1.Properties.Resources.resources
+D:\220911478\Lab 1\Lab 1\obj\Debug\Lab 1.csproj.GenerateResource.Cache
+D:\220911478\Lab 1\Lab 1\obj\Debug\Lab 1.exe
+D:\220911478\Lab 1\Lab 1\obj\Debug\Lab 1.pdb
+D:\220911478\Lab 1\Lab 1\obj\Debug\Lab_1.Form1.resources
+D:\Lab Files\Sem 4\DBS\220911478\Lab 1\Lab 1\bin\Debug\Lab 1.exe.config
+D:\Lab Files\Sem 4\DBS\220911478\Lab 1\Lab 1\bin\Debug\Lab 1.exe
+D:\Lab Files\Sem 4\DBS\220911478\Lab 1\Lab 1\bin\Debug\Lab 1.pdb
+D:\Lab Files\Sem 4\DBS\220911478\Lab 1\Lab 1\obj\Debug\Lab 1.csproj.AssemblyReference.cache
+D:\Lab Files\Sem 4\DBS\220911478\Lab 1\Lab 1\obj\Debug\Lab_1.Form1.resources
+D:\Lab Files\Sem 4\DBS\220911478\Lab 1\Lab 1\obj\Debug\Lab_1.Properties.Resources.resources
+D:\Lab Files\Sem 4\DBS\220911478\Lab 1\Lab 1\obj\Debug\Lab 1.csproj.GenerateResource.cache
+D:\Lab Files\Sem 4\DBS\220911478\Lab 1\Lab 1\obj\Debug\Lab 1.csproj.CoreCompileInputs.cache
+D:\Lab Files\Sem 4\DBS\220911478\Lab 1\Lab 1\obj\Debug\Lab 1.exe
+D:\Lab Files\Sem 4\DBS\220911478\Lab 1\Lab 1\obj\Debug\Lab 1.pdb

@@ -1,0 +1,94 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET, DATA, READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         
+    4 00000000         __Vectors
+    5 00000000 10001000        DCD              0X10001000
+    6 00000004 00000000        DCD              Reset_Handler
+    7 00000008         
+    8 00000008                 ALIGN
+    9 00000008         
+   10 00000008                 AREA             mycode, CODE, READONLY
+   11 00000000                 ENTRY
+   12 00000000                 EXPORT           Reset_Handler
+   13 00000000         
+   14 00000000         Reset_Handler
+   15 00000000 F04F 000E       MOV              R0, #14
+   16 00000004 F04F 0110       MOV              R1, #0X10
+   17 00000008 F06F 020E       MOV              R2, #-15
+   18 0000000C F04F 04BA       MOV              R4, #2_10111010
+   19 00000010 F240 253A       MOV              R5, #8_1072
+   20 00000014 4606            MOV              R6, R0
+   21 00000016 4608            MOV              R0, R1
+   22 00000018 4631            MOV              R1, R6
+   23 0000001A F04F 0604       MOV              R6, #4
+   24 0000001E F04F 0710       MOV              R7, #16
+   25 00000022 FB06 F807       MUL              R8, R6, R7
+   26 00000026         
+   27 00000026         STOP
+   28 00000026 E7FE            B                STOP
+   29 00000028                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=1.d -o1.
+o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\ARM\Inc\NXP\LPC1
+7xx --predefine="__EVAL SETA 1" --list=1.lst 1.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file 1.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 4 in file 1.s
+   Uses
+      At line 2 in file 1.s
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 14 in file 1.s
+   Uses
+      At line 6 in file 1.s
+      At line 12 in file 1.s
+
+STOP 00000026
+
+Symbol: STOP
+   Definitions
+      At line 27 in file 1.s
+   Uses
+      At line 28 in file 1.s
+Comment: STOP used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 10 in file 1.s
+   Uses
+      None
+Comment: mycode unused
+3 symbols
+336 symbols in table

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1693459453 source:d:\220911478 (ishan surana)\lab 5\intopost\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

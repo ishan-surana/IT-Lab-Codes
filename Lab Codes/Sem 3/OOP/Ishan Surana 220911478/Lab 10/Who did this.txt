@@ -1,0 +1,22 @@
+
+// Custom exception class extends Exception
+class Custom extends Exception {
+    // Constructor that takes a custom error message as a parameter
+    public Custom(String message) {
+        // Call the constructor of the parent class (Exception) with the custom message
+        super(message);
+    }
+}
+
+public class CustomException {
+    public static void main(String[] args) {
+        {
+            // Throw CustomException with a custom error message
+            throw new CustomException("This is a custom exception message.");
+        } 
+        {
+            // Catch the CustomException and print the custom error message
+            System.out.println("Caught CustomException: " + e.getMessage());
+        }
+    }
+}
