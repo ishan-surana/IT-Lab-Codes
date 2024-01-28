@@ -27,13 +27,24 @@ D:\Lab Files\Sem 4\DBS Lab\StudentsForm\StudentsForm\obj\Debug\StudentsForm.cspr
 D:\Lab Files\Sem 4\DBS Lab\StudentsForm\StudentsForm\obj\Debug\StudentsForm.csproj.CoreCompileInputs.cache
 D:\Lab Files\Sem 4\DBS Lab\StudentsForm\StudentsForm\obj\Debug\StudentsForm.exe
 D:\Lab Files\Sem 4\DBS Lab\StudentsForm\StudentsForm\obj\Debug\StudentsForm.pdb
-D:\Lab Files\Sem 4\Lab Codes\DBS\Lab 1\StudentsForm\StudentsForm\bin\Debug\StudentsForm.exe.config
-D:\Lab Files\Sem 4\Lab Codes\DBS\Lab 1\StudentsForm\StudentsForm\bin\Debug\StudentsForm.exe
-D:\Lab Files\Sem 4\Lab Codes\DBS\Lab 1\StudentsForm\StudentsForm\bin\Debug\StudentsForm.pdb
-D:\Lab Files\Sem 4\Lab Codes\DBS\Lab 1\StudentsForm\StudentsForm\obj\Debug\StudentsForm.csproj.AssemblyReference.cache
-D:\Lab Files\Sem 4\Lab Codes\DBS\Lab 1\StudentsForm\StudentsForm\obj\Debug\StudentsForm.Form1.resources
-D:\Lab Files\Sem 4\Lab Codes\DBS\Lab 1\StudentsForm\StudentsForm\obj\Debug\StudentsForm.Properties.Resources.resources
-D:\Lab Files\Sem 4\Lab Codes\DBS\Lab 1\StudentsForm\StudentsForm\obj\Debug\StudentsForm.csproj.GenerateResource.cache
-D:\Lab Files\Sem 4\Lab Codes\DBS\Lab 1\StudentsForm\StudentsForm\obj\Debug\StudentsForm.csproj.CoreCompileInputs.cache
-D:\Lab Files\Sem 4\Lab Codes\DBS\Lab 1\StudentsForm\StudentsForm\obj\Debug\StudentsForm.exe
-D:\Lab Files\Sem 4\Lab Codes\DBS\Lab 1\StudentsForm\StudentsForm\obj\Debug\StudentsForm.pdb
+E:\Lab Codes\DBS\Lab 1\StudentsForm\StudentsForm\bin\Debug\StudentsForm.exe.config
+E:\Lab Codes\DBS\Lab 1\StudentsForm\StudentsForm\obj\Debug\StudentsForm.exe
+E:\Lab Codes\DBS\Lab 1\StudentsForm\StudentsForm\obj\Debug\StudentsForm.pdb
+E:\Lab Codes\DBS\Lab 1\StudentsForm\StudentsForm\obj\Debug\StudentsForm.csprojResolveAssemblyReference.cache
+E:\Lab Codes\DBS\Lab 1\StudentsForm\StudentsForm\obj\Debug\StudentsForm.Form1.resources
+E:\Lab Codes\DBS\Lab 1\StudentsForm\StudentsForm\obj\Debug\StudentsForm.Properties.Resources.resources
+E:\Lab Codes\DBS\Lab 1\StudentsForm\StudentsForm\obj\Debug\StudentsForm.csproj.GenerateResource.Cache
+E:\Lab Codes\DBS\Lab 1\StudentsForm\StudentsForm\bin\Debug\StudentsForm.exe
+E:\Lab Codes\DBS\Lab 1\StudentsForm\StudentsForm\bin\Debug\StudentsForm.pdb
+E:\Lab Codes\DBS\Lab 1\StudentsForm\StudentsForm\bin\Debug\mscorlib.dll
+E:\Lab Codes\DBS\Lab 1\StudentsForm\StudentsForm\bin\Debug\normidna.nlp
+E:\Lab Codes\DBS\Lab 1\StudentsForm\StudentsForm\bin\Debug\normnfc.nlp
+E:\Lab Codes\DBS\Lab 1\StudentsForm\StudentsForm\bin\Debug\normnfd.nlp
+E:\Lab Codes\DBS\Lab 1\StudentsForm\StudentsForm\bin\Debug\normnfkc.nlp
+E:\Lab Codes\DBS\Lab 1\StudentsForm\StudentsForm\bin\Debug\normnfkd.nlp
+D:\220911478\Lab 1\StudentsForm\StudentsForm\bin\Debug\mscorlib.dll
+D:\220911478\Lab 1\StudentsForm\StudentsForm\bin\Debug\normidna.nlp
+D:\220911478\Lab 1\StudentsForm\StudentsForm\bin\Debug\normnfc.nlp
+D:\220911478\Lab 1\StudentsForm\StudentsForm\bin\Debug\normnfd.nlp
+D:\220911478\Lab 1\StudentsForm\StudentsForm\bin\Debug\normnfkc.nlp
+D:\220911478\Lab 1\StudentsForm\StudentsForm\bin\Debug\normnfkd.nlp

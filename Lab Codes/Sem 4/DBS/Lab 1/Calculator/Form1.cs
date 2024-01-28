@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,8 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-namespace Lab_1
+namespace Calculator
 {
     public partial class Form1 : Form
     {
@@ -21,16 +20,13 @@ namespace Lab_1
         {
             InitializeComponent();
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {}
         private void Form1_Load(object sender, EventArgs e)
         {
             //this.Text = "Death Note";
             //this.title = "CalcyBoi"
         }
         private void ans_TextChanged(object sender, EventArgs e)
-        {}
+        { }
 
         private void button17_Click(object sender, EventArgs e)
         {
@@ -185,8 +181,24 @@ namespace Lab_1
 
         private void button18_Click(object sender, EventArgs e)
         {
-            ans.Text = ans.Text.Substring(0, ans.Text.Length - 1);
-            input = ans.Text;
+            try
+            {
+                ans.Text = ans.Text.Substring(0, ans.Text.Length - 1);
+                input = ans.Text;
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                hovering(sender, e);
+            }
         }
+        private void hovering(object sender, EventArgs e)
+        {
+            if(ans.Text==string.Empty)
+            this.Cursor = Cursors.No;
+        }
+        private void dehovering(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Default;
         }
     }
+}

@@ -8,7 +8,7 @@
 #include<netinet/in.h>
 #include<fcntl.h>
 #include<sys/stat.h>
-main()
+void main()
 {
 int s,r,recb,sntb,x;
 printf("INPUT port number [suggested 10000]:- ");
@@ -32,9 +32,10 @@ printf("\nConnection error!");
 exit(0);
 }
 printf("\nSocket connected!");
-printf("\n\nType Message:- ");
+printf("\nType Message:- ");
 getchar();
 gets(buff);
+puts(buff);
 sntb=send(s,buff,sizeof(buff),0);
 if(sntb==-1)
 {
@@ -42,15 +43,48 @@ close(s);
 printf("\nMessage Sending Failed!");
 exit(0);
 }
-recb=recv(s,buff,sizeof(buff),0);
+
+while(1)
+{
+printf("Enter choice:- ");
+int choice;
+scanf("%d",&choice);
+sntb=send(s,&choice,sizeof(choice),0);
+if(sntb==-1)
+{
+close(s);
+printf("\nMessage Sending Failed!");
+exit(0);
+}
+char key;
+printf("Enter key:- ");
+getchar();
+scanf("%c",&key);
+sntb=send(s,&key,sizeof(key),0);
+if(sntb==-1)
+{
+close(s);
+printf("\nMessage Sending Failed!");
+exit(0);
+}
+char retbuff[50];
+recb=recv(s,retbuff,sizeof(retbuff),0);
 if(recb==-1)
 {
 printf("\nMessage Recieving Failed!");
 close(s);
 exit(0);
 }
-printf("\nMessage Recieved:- ");
-printf("%s",buff);
-printf("\n\n");
+recb=recv(s,retbuff,sizeof(retbuff),0);
+if(recb==-1)
+{
+printf("\nMessage Recieving Failed!");
+close(s);
+exit(0);
+}
+printf("Message Recieved:- ");
+printf("%s is answer",retbuff);
+printf("\n");
+}
 close(s);
 }

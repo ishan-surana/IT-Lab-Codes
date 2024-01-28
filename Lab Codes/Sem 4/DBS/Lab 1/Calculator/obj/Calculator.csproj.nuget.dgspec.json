@@ -1,0 +1,66 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\MIT Lab Codes\\Lab Codes\\Sem 4\\DBS\\Lab 1\\Calculator\\Calculator.csproj": {}
+  },
+  "projects": {
+    "D:\\MIT Lab Codes\\Lab Codes\\Sem 4\\DBS\\Lab 1\\Calculator\\Calculator.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\MIT Lab Codes\\Lab Codes\\Sem 4\\DBS\\Lab 1\\Calculator\\Calculator.csproj",
+        "projectName": "Calculator",
+        "projectPath": "D:\\MIT Lab Codes\\Lab Codes\\Sem 4\\DBS\\Lab 1\\Calculator\\Calculator.csproj",
+        "packagesPath": "C:\\Users\\ishan\\.nuget\\packages\\",
+        "outputPath": "D:\\MIT Lab Codes\\Lab Codes\\Sem 4\\DBS\\Lab 1\\Calculator\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\ishan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WindowsForms": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

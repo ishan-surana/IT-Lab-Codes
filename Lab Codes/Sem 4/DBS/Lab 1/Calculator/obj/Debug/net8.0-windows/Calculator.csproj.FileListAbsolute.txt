@@ -1,0 +1,17 @@
+D:\MIT Lab Codes\Lab Codes\Sem 4\DBS\Lab 1\Calculator\obj\Debug\net8.0-windows\Calculator.csproj.GenerateResource.cache
+D:\MIT Lab Codes\Lab Codes\Sem 4\DBS\Lab 1\Calculator\obj\Debug\net8.0-windows\Calculator.GeneratedMSBuildEditorConfig.editorconfig
+D:\MIT Lab Codes\Lab Codes\Sem 4\DBS\Lab 1\Calculator\obj\Debug\net8.0-windows\Calculator.AssemblyInfoInputs.cache
+D:\MIT Lab Codes\Lab Codes\Sem 4\DBS\Lab 1\Calculator\obj\Debug\net8.0-windows\Calculator.AssemblyInfo.cs
+D:\MIT Lab Codes\Lab Codes\Sem 4\DBS\Lab 1\Calculator\obj\Debug\net8.0-windows\Calculator.csproj.CoreCompileInputs.cache
+D:\MIT Lab Codes\Lab Codes\Sem 4\DBS\Lab 1\Calculator\obj\Debug\net8.0-windows\Calculator.sourcelink.json
+D:\MIT Lab Codes\Lab Codes\Sem 4\DBS\Lab 1\Calculator\bin\Debug\net8.0-windows\Calculator.exe
+D:\MIT Lab Codes\Lab Codes\Sem 4\DBS\Lab 1\Calculator\bin\Debug\net8.0-windows\Calculator.deps.json
+D:\MIT Lab Codes\Lab Codes\Sem 4\DBS\Lab 1\Calculator\bin\Debug\net8.0-windows\Calculator.runtimeconfig.json
+D:\MIT Lab Codes\Lab Codes\Sem 4\DBS\Lab 1\Calculator\bin\Debug\net8.0-windows\Calculator.dll
+D:\MIT Lab Codes\Lab Codes\Sem 4\DBS\Lab 1\Calculator\bin\Debug\net8.0-windows\Calculator.pdb
+D:\MIT Lab Codes\Lab Codes\Sem 4\DBS\Lab 1\Calculator\obj\Debug\net8.0-windows\Calculator.dll
+D:\MIT Lab Codes\Lab Codes\Sem 4\DBS\Lab 1\Calculator\obj\Debug\net8.0-windows\refint\Calculator.dll
+D:\MIT Lab Codes\Lab Codes\Sem 4\DBS\Lab 1\Calculator\obj\Debug\net8.0-windows\Calculator.pdb
+D:\MIT Lab Codes\Lab Codes\Sem 4\DBS\Lab 1\Calculator\obj\Debug\net8.0-windows\Calculator.genruntimeconfig.cache
+D:\MIT Lab Codes\Lab Codes\Sem 4\DBS\Lab 1\Calculator\obj\Debug\net8.0-windows\ref\Calculator.dll
+D:\MIT Lab Codes\Lab Codes\Sem 4\DBS\Lab 1\Calculator\obj\Debug\net8.0-windows\Calculator.Form1.resources
