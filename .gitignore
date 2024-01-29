@@ -7,5 +7,6 @@ Lab\ Files/*
 !*.uvprojx
 !*.uvproj
 !*.pdf
+Lab\ Files/*.pdf
 */NPS/*
 !*/NPS/*/*.c
