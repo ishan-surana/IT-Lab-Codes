@@ -1,10 +1,10 @@
 Lab\ Files/*
-*/.vscode/*
-*/.vs/*
-!*.s
-!*.uvprojx
-!*.uvproj
-!*.pdf
+./**/.vscode/*
+./**/.vs/*
+!./**/*.s
+!./**/*.uvprojx
+!./**/*.uvproj
+!./**/*.pdf
 Lab\ Files/*.pdf
-*/NPS/*
-!*/NPS/*/*.c
+./**/NPS/*
+!./**/NPS/**/*.c
