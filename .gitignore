@@ -1,2 +1,11 @@
-Lab\ Files/
-Lab\ Codes/.vscode/
+!.gitignore
+!README.md
+Lab\ Files/*
+*/.vscode/*
+*/.vs/*
+!*.s
+!*.uvprojx
+!*.uvproj
+!*.pdf
+*/NPS/*
+!*/NPS/*/*.c
