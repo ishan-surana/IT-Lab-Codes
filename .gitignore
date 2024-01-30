@@ -1,11 +1,15 @@
-./**/ES/*
-!./**/*.s
-!./**/*.uvprojx
-!./**/*.uvproj
-!./**/*.pdf
-Lab\ Files/*
-./**/.vscode/*
-./**/.vs/*
-Lab\ Files/*.pdf
-./**/NPS/*
-!./**/NPS/**/*.c
+# For ES Lab
+Lab Codes/Sem 4/ES/Lab */1/*
+!Lab Codes/Sem 4/ES/Lab */1/**/*.s
+!Lab Codes/Sem 4/ES/Lab */1/**/*.uvprojx
+!Lab Codes/Sem 4/ES/Lab */1/**/*.uvproj
+!Lab Codes/Sem 4/ES/Lab */1/**/*.pdf
+
+Lab\ Files/
+**/.vscode/
+**/.vs/
+
+# NPS Lab
+./Lab Codes/Sem 4/NPS/*
+!./Lab Codes/Sem 4/NPS/**/*.c
+!./Lab Codes/Sem 4/NPS/*.pdf
