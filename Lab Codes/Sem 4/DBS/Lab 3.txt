@@ -1,0 +1,66 @@
+//CREDS:- username = it478@ictorcl
+//	    password = student
+
+create table PERSON (
+driver_id varchar (30) primary key,
+name varchar (50),
+address varchar (100));
+
+create table CAR (
+regno varchar (20) primary key,
+model varchar (30),
+year int);
+
+create table ACCIDENT(
+report_number int primary key, 
+accd_date date, 
+location varchar(50));
+
+create table OWNS(
+driver_id varchar(30),
+regno varchar(20),
+primary key(driver_id, regno),
+foreign key(driver_id) references PERSON(driver_id));
+
+create table PARTICIPATED (
+driver_id# varchar(30),
+regno varchar(20),
+report_number int,
+damage_amount int,
+primary key (driver_id#, regno, report_number),
+foreign key (driver_id#) references PERSON(driver_id#));
+
+INSERT INTO PERSON (driver_id, name, address) VALUES ('D001', 'Alice', '123 Main St');
+INSERT INTO PERSON (driver_id, name, address) VALUES ('D002', 'Bob', '456 Elm Ave');
+INSERT INTO PERSON (driver_id, name, address) VALUES ('D003', 'Charlie', '789 Oak Rd');
+INSERT INTO PERSON (driver_id, name, address) VALUES ('D004', 'David', '101 Pine Ln');
+INSERT INTO PERSON (driver_id, name, address) VALUES ('D005', 'Eve', '202 Maple Ct');
+
+INSERT INTO CAR (regno, model, year) VALUES ('KA01AB1234', 'Toyota Camry', 2020);
+INSERT INTO CAR (regno, model, year) VALUES ('KA02CD5678', 'Honda Civic', 2019);
+INSERT INTO CAR (regno, model, year) VALUES ('KA03EF9012', 'Ford Mustang', 2022);
+INSERT INTO CAR (regno, model, year) VALUES ('KA04GH3456', 'Chevrolet Malibu', 2021);
+INSERT INTO CAR (regno, model, year) VALUES ('KA05IJ7890', 'Volkswagen Golf', 2023);
+
+INSERT INTO ACCIDENT (report_number, accd_date, location) VALUES (3, '15-JAN-2020', 'Intersection A');
+INSERT INTO ACCIDENT (report_number, accd_date, location) VALUES (7, '20-FEB-2021', 'Highway B');
+INSERT INTO ACCIDENT (report_number, accd_date, location) VALUES (8, '10-MAR-2022', 'Street C');
+INSERT INTO ACCIDENT (report_number, accd_date, location) VALUES (12, '05-APR-2023', 'Road D');
+INSERT INTO ACCIDENT (report_number, accd_date, location) VALUES (19, '12-MAY-2024', 'Avenue E');
+
+INSERT INTO OWNS (driver_id, regno) VALUES ('D001', 'KA01AB1234');
+INSERT INTO OWNS (driver_id, regno) VALUES ('D002', 'KA02CD5678');
+INSERT INTO OWNS (driver_id, regno) VALUES ('D003', 'KA03EF9012');
+INSERT INTO OWNS (driver_id, regno) VALUES ('D004', 'KA04GH3456');
+INSERT INTO OWNS (driver_id, regno) VALUES ('D005', 'KA05IJ7890');
+
+INSERT INTO PARTICIPATED (driver_id, regno, report_number, damage_amount) VALUES ('D001', 'KA01AB1234', 3, 5000);
+INSERT INTO PARTICIPATED (driver_id, regno, report_number, damage_amount) VALUES ('D002', 'KA02CD5678', 7, 3000);
+INSERT INTO PARTICIPATED (driver_id, regno, report_number, damage_amount) VALUES ('D003', 'KA03EF9012', 8, 2000);
+INSERT INTO PARTICIPATED (driver_id, regno, report_number, damage_amount) VALUES ('D004', 'KA04GH3456', 12, 4000);
+INSERT INTO PARTICIPATED (driver_id, regno, report_number, damage_amount) VALUES ('D005', 'KA05IJ7890', 19, 1000);
+
+
+
+update participated set damage_amount=25000 where report_number=12;
+delete from accident where extract(year from accd_date)=2021;
