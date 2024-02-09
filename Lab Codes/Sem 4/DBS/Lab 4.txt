@@ -1,0 +1,5 @@
+select * from accident where extract(year from accd_date)=2024;
+select count(*) as accident_count from car,participated where model='Chevrolet Malibu' AND car.regno=participated.regno;
+select name as Owner, count(report_number) as No_Of_Accidents, sum(damage_amount) as total_damage from person, participated where person.driver_id = participated.driver_id group by(person.driver_id,name);
+select name as Owner, count(report_number) as No_Of_Accidents from person, participated where person.driver_id = participated.driver_id group by(person.driver_id,name) having count(report_number)>2;
+select name as Owner, count(report_number) as No_Of_Accidents from person, participated where person.driver_id = participated.driver_id group by(person.driver_id,name) having count(report_number)=0;
