@@ -34,8 +34,9 @@ int main()
 while(1){
 	
 	printf("\n\n");
-	printf("Enter new string: ");
+	printf("Type Message (enter 'stop' to exit): ");
 	scanf("%s", buff);
+
 	sntb=sendto(s,buff,sizeof(buff),0,(struct sockaddr *)&server, len);
 	if(sntb==-1)
 	{
@@ -43,20 +44,8 @@ while(1){
 		printf("\nMessage sending Failed");
 		exit(0);
 	}
-	if(!strcmp(buff,"halt"))
+	if(!strcmp(buff,"stop"))
 		break;
-
-	recb=recvfrom(s,buff,sizeof(buff),0,(struct sockaddr *)&server,&sa);
-	if(recb==-1)
-	{
-		printf("\nMessage Recieving Failed");	
-		close(s);
-		exit(0);
-	}
-	if(buff[0]==1)
-	printf("\nString is palindrome! Length of string is %d and it contains the following vowels:- A = %d\nE = %d\nI = %d\nO = %d\nU = %d\n",buff[1],buff[2],buff[3],buff[4],buff[5],buff[6]);
-	else
-		printf("\nString is not a palindrome! Length of string is %d and it contains the following vowels:- A = %d\nE = %d\nI = %d\nO = %d\nU = %d\n",buff[1],buff[2],buff[3],buff[4],buff[5],buff[6]);
 	}
 	close(s);
 

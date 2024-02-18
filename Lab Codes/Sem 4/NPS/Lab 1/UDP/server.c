@@ -1,71 +1,94 @@
 #include<string.h>
-#include<arpa/inet.h>
-#include<stdlib.h>
-#include<stdio.h>
 #include<unistd.h>
 #include<sys/socket.h>
 #include<sys/types.h>
 #include<netinet/in.h>
-#include<fcntl.h>
-#include<sys/stat.h>
-main()
+#include<stdlib.h>
+#include<stdio.h>
+
+int main()
 {
-int s,r,recb,sntb,x;
-int ca;
-printf("INPUT port number: ");
-scanf("%d",&x);
-socklen_t len;
-struct sockaddr_in server,client;
-char buff[50];
-s=socket(AF_INET,SOCK_DGRAM,0);
-if(s==-1)
-{
-printf("\nSocket creation error.");
-exit(0);
+	int s,r,recb,sntb,x;
+	int ca;
+	printf("INPUT port number: ");
+	scanf("%d", &x);
+	socklen_t len;
+	struct sockaddr_in server,client;
+	char buff[50];
+
+	s=socket(AF_INET,SOCK_DGRAM,0);
+	if(s==-1)
+	{
+		printf("\nSocket creation error.");
+		exit(0);
+	}
+	printf("\nSocket created.");
+
+	server.sin_family=AF_INET;
+	server.sin_port=htons(x);
+	server.sin_addr.s_addr=htonl(INADDR_ANY);
+	len=sizeof(client);
+	ca=sizeof(client);
+
+	r=bind(s,(struct sockaddr*)&server,sizeof(server));
+	if(r==-1)
+		{
+		printf("\nBinding error.");
+		exit(0);
+	}
+	printf("\nSocket binded.");
+while(1){
+
+	recb=recvfrom(s,buff,sizeof(buff),0,(struct sockaddr*)&client,&ca);
+	if(recb==-1)
+	{
+		printf("\nMessage Recieving Failed");		
+		close(s);
+		exit(0);
+	}	
+	printf("\nMessage Recieved: ");
+	printf("%s\n", buff);
+	if(!strcmp(buff,"halt"))
+		break;
+	
+	char buff2[50];
+	strcpy(buff2,buff);
+	buff[1]=strlen(buff2);
+    puts(buff2);
+    buff[2]=buff[3]=buff[4]=buff[5]=buff[6]=0;
+	for(int i=0;i<buff[1];i++)
+    {
+		if(buff2[i]=='a'||buff2[i]=='A')
+			buff[2]++;
+        else if(buff2[i]=='e'||buff2[i]=='E')
+			buff[3]++;
+        else if(buff2[i]=='i'||buff2[i]=='I')
+			buff[4]++;
+        else if(buff2[i]=='o'||buff2[i]=='O')
+			buff[5]++;
+        else if(buff2[i]=='u'||buff2[i]=='U')
+			buff[6]++;
+    }
+	buff[0]=1;
+	for(int i=0;i<buff[1]/2;i++)
+	{
+		if(buff2[i]!=buff2[buff[1]-i-1])
+		{
+			buff[0]=0;
+			break;
+		}
+	}
+	sntb=sendto(s,buff,sizeof(buff),0,(struct sockaddr*)&client,len);
+	if(sntb==-1)
+	{
+		printf("\nMessage Sending Failed");
+		close(s);
+		exit(0);
+	}
+	
+	if(!strcmp(buff,"halt"))
+		break;
+
 }
-printf("\nSocket created!");
-server.sin_family=AF_INET;
-server.sin_port=htons(x);
-server.sin_addr.s_addr=htonl(INADDR_ANY);
-len=sizeof(client);
-ca=sizeof(client);
-r=bind(s,(struct sockaddr*)&server,sizeof(server));
-if(r==-1)
-{
-printf("\nBinding error!");
-exit(0);
-}
-printf("\nSocket binded!");
-while (1) {
-recb=recvfrom(s,buff,sizeof(buff),0,(struct sockaddr*)&client,&ca);
-if(recb==-1)
-{
-printf("Message Recieving Failed!");
-close(s);
-exit(0);
-}
-printf("Message Recieved:- ");
-printf("%s",buff);
-if(!strcmp(buff,"stop"))
-{
-printf("\n");
-break;
-}
-printf("\n\nSend Reply:- ");
-fflush(stdin);
-gets(buff);
-sntb=sendto(s,buff,sizeof(buff),0,(struct sockaddr*)&client, len);
-if(sntb==-1)
-{
-printf("\nMessage Sending Failed!");
-close(s);
-exit(0);
-}
-if(!strcmp(buff,"stop"))
-{
-printf("\n");
-break;
-}
-}
-close(s);
+	close(s);
 }

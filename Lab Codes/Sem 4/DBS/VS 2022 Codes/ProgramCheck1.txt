@@ -1,0 +1,27 @@
+create table Employees (
+id varchar (2) primary key,
+name varchar (50),
+salary int,
+role varchar (50));
+
+create table Awards (
+id varchar (2),
+employee_id varchar (11),
+award_date date,
+primary key(id),
+foreign key(employee_id) references Employees(id));
+
+insert into employees values('1','Augustine Hammond',10000,'Developer');
+insert into employees values('2','Prince Hammond',10000,'Manager');
+insert into employees values('3','Casey Delaby',30000,'Developer');
+insert into employees values('4','Garwood Sallen',40000,'Manager');
+insert into employees values('5','Fayandra Beaves',50000,'Developer');
+
+insert into awards values('1','1','01-APR-2022');
+insert into awards values('2','3','01-MAY-2022');
+
+
+select name from employees where id in(select employee_id from awards);
+select name from employees where id not in(select employee_id from awards);
+select name from employees where role='Developer' and salary>all(select salary from employees where role='Manager');
+select name from employees where role='Developer' and salary>any(select salary from employees where role='Manager');
