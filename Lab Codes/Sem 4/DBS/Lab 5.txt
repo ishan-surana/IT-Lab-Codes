@@ -1,0 +1,97 @@
+create table STUDENT (
+regno varchar (20) primary key,
+name varchar (50),
+major varchar (20),
+bdate date);
+
+create table COURSE(
+course int primary key, 
+cname varchar (30), 
+dept varchar(30));
+
+create table ENROLL (
+regno varchar (20),
+course int,
+foreign key (regno) references STUDENT(regno) ON DELETE CASCADE,
+foreign key (course) references COURSE(course) ON DELETE CASCADE);
+
+create table TEXT (
+book_isbn int primary key,
+booktitle varchar (50),
+publisher varchar (50),
+author varchar (50));
+
+create table BOOK_ADOPTION (
+course int,
+sem int,
+book_isbn int,
+foreign key(book_isbn) references TEXT(book_isbn) ON DELETE CASCADE,
+foreign key(course) references COURSE(course) ON DELETE CASCADE);
+
+INSERT INTO STUDENT (regno, name, major, bdate) VALUES ('S001', 'John Smith', 'Computer Science', TO_DATE('1998-05-15', 'YYYY-MM-DD'));
+INSERT INTO STUDENT (regno, name, major, bdate) VALUES ('S002', 'Emily Johnson', 'Electrical Engg.', TO_DATE('1999-09-20', 'YYYY-MM-DD'));
+INSERT INTO STUDENT (regno, name, major, bdate) VALUES ('S003', 'Michael Brown', 'Mechanical Engg.', TO_DATE('1997-07-10', 'YYYY-MM-DD'));
+INSERT INTO STUDENT (regno, name, major, bdate) VALUES ('S004', 'Emma Wilson', 'English Literature', TO_DATE('2000-03-28', 'YYYY-MM-DD'));
+INSERT INTO STUDENT (regno, name, major, bdate) VALUES ('S005', 'Daniel Martinez', 'Physics', TO_DATE('1998-11-02', 'YYYY-MM-DD'));
+INSERT INTO STUDENT VALUES('S006', 'Unregistered Nibba', 'Some course', '29-FEB-24');
+
+INSERT INTO COURSE (course, cname, dept) VALUES (101, 'Introduction to Programming', 'Computer Science');
+INSERT INTO COURSE (course, cname, dept) VALUES (201, 'Digital Circuits', 'Electrical Engg.');
+INSERT INTO COURSE (course, cname, dept) VALUES (301, 'Thermodynamics', 'Mechanical Engg.');
+INSERT INTO COURSE (course, cname, dept) VALUES (401, 'Shakespearean Literature', 'English Literature');
+INSERT INTO COURSE (course, cname, dept) VALUES (501, 'Quantum Mechanics', 'Physics');
+INSERT INTO COURSE (course, cname, dept) VALUES (601, 'Some course', 'Some subject');
+
+INSERT INTO ENROLL (regno, course) VALUES ('S001', 101);
+INSERT INTO ENROLL (regno, course) VALUES ('S002', 201);
+INSERT INTO ENROLL (regno, course) VALUES ('S003', 301);
+INSERT INTO ENROLL (regno, course) VALUES ('S004', 401);
+INSERT INTO ENROLL (regno, course) VALUES ('S005', 501);
+INSERT INTO ENROLL (regno, course) VALUES ('S002', 301);
+INSERT INTO ENROLL (regno, course) VALUES ('S003', 101);
+INSERT INTO ENROLL (regno, course) VALUES ('S002', 501);
+INSERT INTO ENROLL (regno, course) VALUES ('S005', 201);
+INSERT INTO ENROLL (regno, course) VALUES ('S006', 601);
+
+INSERT INTO TEXT (book_isbn, booktitle, publisher, author) VALUES (1001, 'Introduction to Algorithms', 'MIT Press', 'Thomas H. Cormen');
+INSERT INTO TEXT (book_isbn, booktitle, publisher, author) VALUES (1002, 'Digital Design', 'Pearson', 'M. Morris Mano');
+INSERT INTO TEXT (book_isbn, booktitle, publisher, author) VALUES (1003, 'Engineering Thermodynamics', 'Wiley', 'Yunus A. Cengel');
+INSERT INTO TEXT (book_isbn, booktitle, publisher, author) VALUES (1004, 'Hamlet', 'Penguin Classics', 'William Shakespeare');
+INSERT INTO TEXT (book_isbn, booktitle, publisher, author) VALUES (1005, 'Introduction to Quantum Mechanics', 'Cambridge University Press', 'David J. Griffiths');
+INSERT INTO TEXT (book_isbn, booktitle, publisher, author) VALUES (1006, 'Data Structures and Algorithms', 'MIT Press', 'John Doe');
+INSERT INTO TEXT (book_isbn, booktitle, publisher, author) VALUES (1007, 'Power System Analysis', 'Pearson', 'Jane Doe');
+INSERT INTO TEXT (book_isbn, booktitle, publisher, author) VALUES (1008, 'Romeo and Juliet', 'Penguin Classics', 'William Shakespeare');
+INSERT INTO TEXT (book_isbn, booktitle, publisher, author) VALUES (1009, 'Modern Physics', 'Cambridge University Press', 'Albert Einstein');
+INSERT INTO TEXT (book_isbn, booktitle, publisher, author) VALUES (1010, 'Operating Systems Concepts', 'Wiley', 'Abraham Silberschatz');
+INSERT INTO TEXT (book_isbn, booktitle, publisher, author) VALUES (1011, 'Computer Networks', 'Pearson', 'Andrew S. Tanenbaum');
+INSERT INTO TEXT (book_isbn, booktitle, publisher, author) VALUES (1012, 'Database System Concepts', 'McGraw-Hill', 'Abraham Silberschatz');
+INSERT INTO TEXT (book_isbn, booktitle, publisher, author) VALUES (1013, 'Introduction to Robotics', 'MIT Press', 'John Craig');
+INSERT INTO TEXT (book_isbn, booktitle, publisher, author) VALUES (1014, 'Signals and Systems', 'Pearson', 'Alan V. Oppenheim');
+INSERT INTO TEXT (book_isbn, booktitle, publisher, author) VALUES (1015, 'The C Programming Language', 'Prentice Hall', 'Brian W. Kernighan');
+INSERT INTO TEXT (book_isbn, booktitle, publisher, author) VALUES (1016, 'Artificial Intelligence: A Modern Approach', 'Pearson', 'Stuart Russell');
+INSERT INTO TEXT (book_isbn, booktitle, publisher, author) VALUES (1017, 'Machine Learning', 'McGraw-Hill', 'Tom M. Mitchell');
+
+INSERT INTO BOOK_ADOPTION (course, sem, book_isbn) VALUES (101, 1, 1001);
+INSERT INTO BOOK_ADOPTION (course, sem, book_isbn) VALUES (201, 1, 1002);
+INSERT INTO BOOK_ADOPTION (course, sem, book_isbn) VALUES (301, 2, 1003);
+INSERT INTO BOOK_ADOPTION (course, sem, book_isbn) VALUES (401, 2, 1004);
+INSERT INTO BOOK_ADOPTION (course, sem, book_isbn) VALUES (501, 3, 1005);
+INSERT INTO BOOK_ADOPTION (course, sem, book_isbn) VALUES (101, 1, 1015);
+INSERT INTO BOOK_ADOPTION (course, sem, book_isbn) VALUES (501, 1, 1009);
+INSERT INTO BOOK_ADOPTION (course, sem, book_isbn) VALUES (101, 2, 1006);
+
+select cname from course where course=any(select course from book_adoption group by(course) having count(*)>1);
+select distinct cname from course,book_adoption where course.course=book_adoption.course and book_isbn = ANY(select book_isbn from text where publisher='MIT Press');
+select name from student where regno = any(select regno from enroll group by(regno) having count(*)>1);
+select name from student where regno not in(select regno from enroll);
+select booktitle from text where book_isbn in(select book_isbn from book_adoption natural join enroll);
+select cname, publisher, count(*) as NUM_BOOKS from course,book_adoption natural join text where book_adoption.course=course.course group by(cname,book_adoption.course, publisher) having count(*)>1;
+select cname,book_adoption.course from course,book_adoption where course.course=book_adoption.course having count(*)=(select max(count(*)) from book_adoption group by course) group by(cname,book_adoption.course);
+select publisher,count(*) from text group by(publisher);
+select distinct regno from enroll where regno not in (select regno from enroll where course not in (select course from book_adoption));
+select distinct name,enroll.regno from student,enroll where student.regno=enroll.regno and enroll.regno not in (select regno from enroll where course not in (select course from book_adoption));
+
+
+-- EXTRA question for self practice=>
+-- Q- Give names of courses which use books from only 1 publisher
+-- select distinct cname from course,book_adoption where course.course=book_adoption.course AND book_isbn=ANY(select book_isbn from text where publisher=ANY(SELECT publisher FROM TEXT GROUP BY (publisher) having count(publisher)=2));

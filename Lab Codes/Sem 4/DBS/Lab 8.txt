@@ -1,0 +1,29 @@
+CREATE TABLE Persons (
+    PersonID NUMBER PRIMARY KEY,
+    LastName VARCHAR2(50),
+    FirstName VARCHAR2(50),
+    Address VARCHAR2(100),
+    City VARCHAR2(50)
+);
+
+INSERT INTO Persons (PersonID, LastName, FirstName, Address, City) VALUES (1, 'Smith', 'John', '123 Main St', 'New York');
+INSERT INTO Persons (PersonID, LastName, FirstName, Address, City) VALUES (2, 'Johnson', 'Alice', '456 Elm St', 'Los Angeles');
+INSERT INTO Persons (PersonID, LastName, FirstName, Address, City) VALUES (3, 'Brown', 'David', '789 Oak Ave', 'Chicago');
+INSERT INTO Persons (PersonID, LastName, FirstName, Address, City) VALUES (4, 'Lee', 'Emily', '101 Pine Rd', 'Houston');
+INSERT INTO Persons (PersonID, LastName, FirstName, Address, City) VALUES (5, 'Garcia', 'Carlos', '222 Maple Ln', 'Miami');
+SAVEPOINT S;
+SELECT * FROM Persons;
+UPDATE Persons SET Address = '123 Main Street' WHERE Address = '123 Main St';
+UPDATE Persons SET Address = '456 Elm Street' WHERE Address = '456 Elm St';
+SAVEPOINT S1;
+UPDATE Persons SET LastName = 'Johnson' WHERE FirstName = 'John';
+UPDATE Persons SET LastName = 'Willis' WHERE FirstName = 'Emily';
+SELECT * FROM Persons;
+-- ROLLBACK TO S;
+-- if ROLLBACKED to S then can't ROLLBACK to S1 (which is Q6)
+SELECT * FROM Persons;
+ROLLBACK TO S1;
+SELECT * FROM Persons;
+
+COMMIT;
+-- no savepoints valid after commit

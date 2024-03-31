@@ -1,0 +1,11 @@
+D:\220911478\Lab 6\Insurance\Insurance\bin\Debug\Insurance.exe.config
+D:\220911478\Lab 6\Insurance\bin\Debug\Insurance.exe.config
+D:\220911478\Lab 6\Insurance\bin\Debug\Insurance.exe
+D:\220911478\Lab 6\Insurance\bin\Debug\Insurance.pdb
+D:\220911478\Lab 6\Insurance\bin\Debug\Oracle.DataAccess.dll
+D:\220911478\Lab 6\Insurance\obj\Debug\Insurance.csprojResolveAssemblyReference.cache
+D:\220911478\Lab 6\Insurance\obj\Debug\Insurance.Form1.resources
+D:\220911478\Lab 6\Insurance\obj\Debug\Insurance.Properties.Resources.resources
+D:\220911478\Lab 6\Insurance\obj\Debug\Insurance.csproj.GenerateResource.Cache
+D:\220911478\Lab 6\Insurance\obj\Debug\Insurance.exe
+D:\220911478\Lab 6\Insurance\obj\Debug\Insurance.pdb
