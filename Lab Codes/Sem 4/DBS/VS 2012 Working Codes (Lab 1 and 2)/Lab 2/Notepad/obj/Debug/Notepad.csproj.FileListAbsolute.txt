@@ -1,8 +1,0 @@
-D:\220911478\Remade\Lab 2\Notepad\Notepad\bin\Debug\Notepad.exe.config
-D:\220911478\Remade\Lab 2\Notepad\Notepad\bin\Debug\Notepad.exe
-D:\220911478\Remade\Lab 2\Notepad\Notepad\bin\Debug\Notepad.pdb
-D:\220911478\Remade\Lab 2\Notepad\Notepad\obj\Debug\Notepad.Form1.resources
-D:\220911478\Remade\Lab 2\Notepad\Notepad\obj\Debug\Notepad.Properties.Resources.resources
-D:\220911478\Remade\Lab 2\Notepad\Notepad\obj\Debug\Notepad.csproj.GenerateResource.Cache
-D:\220911478\Remade\Lab 2\Notepad\Notepad\obj\Debug\Notepad.exe
-D:\220911478\Remade\Lab 2\Notepad\Notepad\obj\Debug\Notepad.pdb

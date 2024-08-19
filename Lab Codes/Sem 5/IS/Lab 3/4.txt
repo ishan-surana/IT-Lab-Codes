@@ -1,0 +1,117 @@
+# from Crypto.PublicKey import RSA, ECC
+# from Crypto.Cipher import AES, PKCS1_OAEP
+# from Crypto.Signature import DSS
+# from Crypto.Hash import SHA256
+# from Crypto.Random import get_random_bytes
+# import time
+
+# # RSA Key Generation
+# rsa_start = time.time()
+# rsa_key = RSA.generate(2048)
+# rsa_end = time.time()
+# print(f"RSA Key Generation Time: {rsa_end - rsa_start:.10f} seconds")
+
+# # ECC Key Generation
+# ecc_start = time.time()
+# ecc_key = ECC.generate(curve='P-256')
+# ecc_end = time.time()
+# print(f"ECC Key Generation Time: {ecc_end - ecc_start:.10f} seconds")
+
+# # Symmetric Key for File Encryption
+# symmetric_key = get_random_bytes(32)
+
+# # Encrypt and Decrypt a File using RSA
+# def encrypt_decrypt_rsa(file_data, rsa_key):
+#     rsa_cipher = PKCS1_OAEP.new(rsa_key)
+#     encrypted_data = rsa_cipher.encrypt(file_data)
+#     decrypted_data = rsa_cipher.decrypt(encrypted_data)
+#     return decrypted_data
+
+# # Encrypt and Decrypt a File using ECC
+# def encrypt_decrypt_ecc(file_data, ecc_key):
+#     ecc_pub_key = ecc_key.public_key()
+#     signer = DSS.new(ecc_key, 'fips-186-3')
+#     h = SHA256.new(file_data)
+#     signature = signer.sign(h)
+
+#     verifier = DSS.new(ecc_pub_key, 'fips-186-3')
+#     verifier.verify(h, signature)
+#     return file_data  # ECC encryption would require more advanced setup
+
+# # Test with a 1MB file
+# file_data_1mb = get_random_bytes(1024 * 1024)
+
+# # RSA Encryption/Decryption
+# rsa_enc_start = time.time()
+# rsa_decrypted = encrypt_decrypt_rsa(file_data_1mb, rsa_key)
+# rsa_enc_end = time.time()
+# print(f"RSA Encryption/Decryption Time (1MB): {rsa_enc_end - rsa_enc_start:.10f} seconds")
+
+# # ECC Encryption/Decryption (Using signing for demonstration)
+# ecc_enc_start = time.time()
+# ecc_decrypted = encrypt_decrypt_ecc(file_data_1mb, ecc_key)
+# ecc_enc_end = time.time()
+# print(f"ECC Encryption/Decryption Time (1MB): {ecc_enc_end - ecc_enc_start:.10f} seconds")
+
+# # You can replicate the above for a 10MB file by generating a file_data_10mb with size 10 * 1024 * 1024
+
+
+from Crypto.PublicKey import RSA, ECC
+from Crypto.Cipher import AES, PKCS1_OAEP
+from Crypto.Random import get_random_bytes
+import time
+
+# RSA Key Generation
+rsa_start = time.time()
+rsa_key = RSA.generate(2048)
+rsa_end = time.time()
+print(f"RSA Key Generation Time: {rsa_end - rsa_start:.10f} seconds")
+
+# ECC Key Generation
+ecc_start = time.time()
+ecc_key = ECC.generate(curve='P-256')
+ecc_end = time.time()
+print(f"ECC Key Generation Time: {ecc_end - ecc_start:.10f} seconds")
+
+# Symmetric Key for File Encryption
+symmetric_key = get_random_bytes(32)  # AES-256 key
+
+# Encrypt and Decrypt a File using Hybrid RSA + AES
+def hybrid_encrypt_decrypt_rsa(file_data, rsa_key):
+    # Step 1: Encrypt the file data using AES
+    aes_cipher = AES.new(symmetric_key, AES.MODE_EAX)
+    ciphertext, tag = aes_cipher.encrypt_and_digest(file_data)
+    
+    # Step 2: Encrypt the AES key using RSA
+    rsa_cipher = PKCS1_OAEP.new(rsa_key.publickey())
+    encrypted_symmetric_key = rsa_cipher.encrypt(symmetric_key)
+    
+    # Decrypt the symmetric key using RSA
+    rsa_cipher = PKCS1_OAEP.new(rsa_key)
+    decrypted_symmetric_key = rsa_cipher.decrypt(encrypted_symmetric_key)
+    
+    # Decrypt the file data using AES
+    aes_cipher = AES.new(decrypted_symmetric_key, AES.MODE_EAX, nonce=aes_cipher.nonce)
+    decrypted_data = aes_cipher.decrypt_and_verify(ciphertext, tag)
+    
+    return decrypted_data
+
+# Test with a 1MB file
+file_data_1mb = get_random_bytes(1024 * 1024)
+rsa_enc_start = time.time()
+rsa_decrypted = hybrid_encrypt_decrypt_rsa(file_data_1mb, rsa_key)
+rsa_enc_end = time.time()
+print(f"RSA Hybrid Encryption/Decryption Time (1MB): {rsa_enc_end - rsa_enc_start:.10f} seconds")
+
+# ECC part of the example was just a placeholder; it's not directly involved in this encryption method.
+# You can replicate the above for a 10MB file by generating a file_data_10mb with size 10 * 1024 * 1024
+# The ECC key is not used in this example. It's just generated for demonstration purposes.
+# The symmetric key is used for AES encryption/decryption. The RSA key is used for encrypting/decrypting the symmetric key.
+# The RSA key is generated once and used for both encryption and decryption. The ECC key is not used in this example.
+# The RSA key is used for encrypting and decrypting the symmetric key, which is then used for AES encryption/decryption.
+
+file_data_10mb = get_random_bytes(10 * 1024 * 1024)
+rsa_enc_start = time.time()
+rsa_decrypted = hybrid_encrypt_decrypt_rsa(file_data_10mb, rsa_key)
+rsa_enc_end = time.time()
+print(f"RSA Hybrid Encryption/Decryption Time (10MB): {rsa_enc_end - rsa_enc_start:.10f} seconds")

@@ -1,0 +1,60 @@
+from Crypto.PublicKey import ECC
+from Crypto.Cipher import AES
+from Crypto.Util.Padding import pad, unpad
+from Crypto.Random import get_random_bytes
+from Crypto.Hash import SHA256
+from Crypto.Protocol.KDF import scrypt
+from Crypto.Util.Padding import pad, unpad
+
+# Generate ECC key pair
+private_key = ECC.generate(curve='P-256')
+public_key = private_key.public_key()
+
+# Derive shared secret
+message = b"Secure Transactions"
+cipher = AES.new(get_random_bytes(16), AES.MODE_EAX)  # Temporary AES key for encryption
+ciphertext, tag = cipher.encrypt_and_digest(message)
+
+# Encrypt with the public key
+ciphertext = cipher.encrypt(pad(message, AES.block_size))
+print("Ciphertext:", ciphertext.hex())
+
+# Decrypt the message
+cipher = AES.new(get_random_bytes(16), AES.MODE_EAX)  # Temporary AES key for decryption
+decrypted_message = unpad(cipher.decrypt(ciphertext), AES.block_size)
+print("Decrypted message:", decrypted_message.decode())
+
+
+
+
+
+from Crypto.PublicKey import ECC
+from Crypto.Cipher import AES
+from Crypto.Util.Padding import pad, unpad
+from Crypto.Hash import SHA256
+
+private_key = ECC.generate(curve='P-256')
+public_key = private_key.public_key()
+
+# Step 2: Derive a shared secret using ECDH
+# For demonstration, we generate another key pair to simulate the other party
+other_private_key = ECC.generate(curve='P-256')
+other_public_key = other_private_key.public_key()
+
+shared_secret = private_key.exchange(other_public_key)
+shared_secret = private_key.dh_cose_key().derive(other_public_key)
+key = SHA256.new(shared_secret).digest()[:16]  # AES requires 16, 24, or 32 bytes key
+
+message = b"Secure Transactions"
+cipher = AES.new(key, AES.MODE_ECB)
+
+padded_message = pad(message, AES.block_size)
+
+ciphertext = cipher.encrypt(padded_message)
+print("Ciphertext:", ciphertext.hex())
+
+cipher = AES.new(key, AES.MODE_ECB)
+decrypted_padded_message = cipher.decrypt(ciphertext)
+
+decrypted_message = unpad(decrypted_padded_message, AES.block_size)
+print("Decrypted message:", decrypted_message.decode())

@@ -1,0 +1,8 @@
+D:\220911478\Remade\Lab 2\BankingApp\BankingApp\bin\Debug\BankingApp.exe.config
+D:\220911478\Remade\Lab 2\BankingApp\BankingApp\obj\Debug\BankingApp.Form1.resources
+D:\220911478\Remade\Lab 2\BankingApp\BankingApp\obj\Debug\BankingApp.Properties.Resources.resources
+D:\220911478\Remade\Lab 2\BankingApp\BankingApp\obj\Debug\BankingApp.csproj.GenerateResource.Cache
+D:\220911478\Remade\Lab 2\BankingApp\BankingApp\bin\Debug\BankingApp.exe
+D:\220911478\Remade\Lab 2\BankingApp\BankingApp\bin\Debug\BankingApp.pdb
+D:\220911478\Remade\Lab 2\BankingApp\BankingApp\obj\Debug\BankingApp.exe
+D:\220911478\Remade\Lab 2\BankingApp\BankingApp\obj\Debug\BankingApp.pdb

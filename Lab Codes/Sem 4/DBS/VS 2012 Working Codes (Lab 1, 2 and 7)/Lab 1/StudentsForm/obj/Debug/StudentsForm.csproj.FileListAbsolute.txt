@@ -1,0 +1,9 @@
+D:\220911478\Remade\Lab 1\StudentsForm\StudentsForm\bin\Debug\StudentsForm.exe.config
+D:\220911478\Remade\Lab 1\StudentsForm\StudentsForm\bin\Debug\StudentsForm.exe
+D:\220911478\Remade\Lab 1\StudentsForm\StudentsForm\bin\Debug\StudentsForm.pdb
+D:\220911478\Remade\Lab 1\StudentsForm\StudentsForm\obj\Debug\StudentsForm.csprojResolveAssemblyReference.cache
+D:\220911478\Remade\Lab 1\StudentsForm\StudentsForm\obj\Debug\StudentsForm.Form1.resources
+D:\220911478\Remade\Lab 1\StudentsForm\StudentsForm\obj\Debug\StudentsForm.Properties.Resources.resources
+D:\220911478\Remade\Lab 1\StudentsForm\StudentsForm\obj\Debug\StudentsForm.csproj.GenerateResource.Cache
+D:\220911478\Remade\Lab 1\StudentsForm\StudentsForm\obj\Debug\StudentsForm.exe
+D:\220911478\Remade\Lab 1\StudentsForm\StudentsForm\obj\Debug\StudentsForm.pdb
