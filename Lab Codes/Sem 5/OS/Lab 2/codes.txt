@@ -1,0 +1,29 @@
+cat file.txt | grep -E ell
+sort file.txt -o sorted_file.txt
+wc -w/-l/-c/-m file.txt
+cut -d "-" -f 2 / cut -c 0-9
+echo "ip" | sed -e 's/ip/op/g'     /    -i [= inplace]
+echo "abc" | tr [a-z] [1-9]
+ps
+kill -9 [PID]
+chmod +x file.txt
+echo "Hello"
+echo 1+2 | bc
+vi [l, h to left right, k , j to up right, Esc to command, :dN to delete N lines from current]
+
+cat texts.txt | grep '^..$'
+cat texts.txt | grep '^[A-Z]'
+cat texts.txt | grep '\.$'
+cat texts.txt | grep -E " +"
+cat texts.txt | grep -E "[0-9]" > has_numbers.txt
+
+cat studentInformation.txt | cut -d ":" -f 3| grep ICT | wc -l
+cat studentInformation.txt | sed -e "s/IT/Information Technology/" > ITStudents.txt
+cat studentInformation.txt | grep "1234:" | cut -d ":" -f 6-8 | tr ':' '+' | sed 's/$/)\/3/; s/^/(/' | bc
+# cat studentInformation.txt | grep "1234:" | cut -d ":" -f 6-8 | awk -F: '{print($1+$2+$3)/3}'
+head -n 1 studentInformation.txt | tr [a-z] [A-Z] ; tail -n +2 studentInformation.txt
+# sed -n '1s/.*/\U&/p;2,$p' studentInformation.txt       # awk 'NR==1 {print toupper($0); next} {print}' studentInformation.txt
+
+grep -l "MIT" ./*; grep "MIT" ./* | sed -e "s/MIT/Manipal Institute of Technology/g"
+wc $(ls | grep "[0-9]")
+kill -9 $(pgrep wc)    /     kill -9 $(ps | grep "wc" | cut -d " " -f 4)

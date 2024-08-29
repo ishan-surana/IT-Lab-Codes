@@ -1,0 +1,5 @@
+ex: this is the first occurrence so should be replaced
+second ex: should not be replaced as it occurs in the middle of the sentence.
+
+Another example with ex: at the start.
+And here is another line . ex: that will be replaced.

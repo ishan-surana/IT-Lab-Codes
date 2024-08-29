@@ -1,0 +1,11 @@
+RegistrationNo:Name:Department:Branch:Section:Sub1:Sub2:Sub3
+1234:Alice Smith:ICT:CCE:A:80:60:70
+5678:Bob Johnson:Electrical:EEE:B:75:65:85
+9101:Charlie Brown:ICT:CSE:B:70:55:80
+1121:Deborah White:Science:Physics:A:85:90:88
+3141:Evan Green:Commerce:Management:C:60:72:65
+5161:Faith Adams:Arts:English:B:78:80:72
+7181:George Lee:Mechanical:ME:A:88:76:90
+9202:Hannah Moore:ICT:IT:C:68:62:70
+2233:Isaac Harris:Commerce:Accounting:A:82:77:84
+4455:Jessica King:Arts:History:B:74:70:78

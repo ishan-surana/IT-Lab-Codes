@@ -1,0 +1,34 @@
+echo $PATH
+mkdir ~/Desktop/220911478 [+ cd there]
+cd - [twice to get back]
+touch file.txt
+ls --color [and with wildcards [], [!]]
+>, >> [echo 'hello' file.txt, echo 'hello boi' >> file.txt]
+cat -n file.txt
+pwd
+	man -k
+file file.txt
+head file.txt
+tail -f file.txt
+cp file.txt file2.txt
+mv file2.txt file3.txt
+rm file3.txt
+rmdir tempdir [after mkdiir tempdir]
+chmod +x f.txt [after creating f.txt]
+which ls
+whereis cat
+locate file.txt
+find file.txt
+| [cat file.txt | grep "hello"]
+
+cat f2.txt >> f1.txt
+head -n/-c 5 file.txt
+cp -f/-n/-i file.txt file3.txt [force move/no move/ask if overwwrite if file of name already exists]
+mv -f/-i file.txt file3.txt [force move/ask if overwwrite]
+rm -r/i/f tempdir [recursive remove/interactive/force remove]
+find . -name "file" / find . -type "txt"
+
+ls *txt
+ls *[0-9]*
+ls ????*
+ls [^aeiou]*
