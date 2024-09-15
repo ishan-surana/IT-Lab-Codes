@@ -1,11 +1,10 @@
 from Crypto.PublicKey import RSA
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
-from Crypto.Util.number import long_to_bytes, bytes_to_long
+from Crypto.Util.number import long_to_bytes, bytes_to_long, getPrime
 import base64
 import hashlib
 from random import randint
-from Crypto.Util.number import getPrime
 
 class KeyManagementSystem:
     def __init__(self):
@@ -94,4 +93,4 @@ if __name__ == "__main__":
     sender = input("Enter sender system ID: ")
     receiver = input("Enter receiver system ID: ")
     message = input("Enter message: ")
-    kms.communicate('SystemA', 'SystemB', message)
+    kms.communicate(sender, receiver, message)
