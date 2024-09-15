@@ -8,7 +8,6 @@ search_patterns() {
 
 delete_patterns() {
     cp "$input_file" "$input_file.temp"
-    echo "Temp file created: $input_file.temp"
     for pattern in "${patterns[@]}"; do
         sed -i "s/$pattern//g" "$input_file.temp"
     done
