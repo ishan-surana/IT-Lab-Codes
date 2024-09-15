@@ -1,4 +1,4 @@
-from Crypto.Util.number import getPrime, inverse, GCD
+from Crypto.Util.number import getPrime, inverse
 import base64
 import hashlib
 
@@ -70,7 +70,7 @@ class RabinKeyManagement:
         print("All keys renewed.")
 
 def menu():
-    kms = RabinKeyManagement()
+    rkm = RabinKeyManagement()
     print("Key Management System")
     print("1. Generate and Store Key Pair")
     print("2. Retrieve Key Pair")
@@ -82,27 +82,26 @@ def menu():
         choice = input("\nChoose an option: ")
         if choice == '1':
             facility_id = input("Enter facility ID: ")
-            kms.store_key_pair(facility_id)
+            rkm.store_key_pair(facility_id)
         elif choice == '2':
             facility_id = input("Enter facility ID: ")
-            key_pair = kms.get_key_pair(facility_id)
+            key_pair = rkm.get_key_pair(facility_id)
             if key_pair:
                 print(f"Public Key: {key_pair['public_key']}")
                 print(f"Private Key: {key_pair['private_key']}")
         elif choice == '3':
             facility_id = input("Enter facility ID: ")
-            kms.revoke_key_pair(facility_id)
+            rkm.revoke_key_pair(facility_id)
         elif choice == '4':
-            kms.renew_keys()
+            rkm.renew_keys()
         elif choice == '5':
             facility_id = input("Enter facility ID: ")
-            key_pair = kms.get_key_pair(facility_id)
+            key_pair = rkm.get_key_pair(facility_id)
             if key_pair:
                 message = input("Enter message to encrypt: ")
-                encrypted_message, message_hash = kms.encrypt(key_pair['public_key'], message)
+                encrypted_message, message_hash = rkm.encrypt(key_pair['public_key'], message)
                 print(f"Encrypted message: {encrypted_message}")
-
-                decrypted_message = kms.decrypt(key_pair['private_key'], encrypted_message, message_hash)
+                decrypted_message = rkm.decrypt(key_pair['private_key'], encrypted_message, message_hash)
                 print(f"Decrypted message: {decrypted_message}")
         elif choice == '6':
             print("Exiting...")

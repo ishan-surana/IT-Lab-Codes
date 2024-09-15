@@ -3,10 +3,10 @@ import hashlib
 
 data_to_send = input("Enter data:- ").encode()
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server_address = ('localhost', 65432)
+server_address = ('localhost', 12345)
 client_socket.connect(server_address)
 try:
-    if data_to_send == b'exit':
+    if data_to_send == b'exit' or not data_to_send:
         exit()
     client_socket.sendall(data_to_send)
     received_hash = client_socket.recv(64).decode()
