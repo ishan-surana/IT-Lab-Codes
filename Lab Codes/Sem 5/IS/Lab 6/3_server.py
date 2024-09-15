@@ -19,7 +19,7 @@ print("Server listening on port 65432...")
 
 conn, addr = server_socket.accept()
 print(f"Connected by {addr}")
-data = {'n': n, 'e': e, 'message': message, 'signature': signature}
+data = {'n': n, 'e': e, 'm': m, 'signature': signature}
 conn.sendall(pickle.dumps(data))
 
 conn.close()
