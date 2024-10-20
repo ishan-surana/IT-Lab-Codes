@@ -68,7 +68,7 @@ int main() {
                 priorityScheduling(ps, n);
                 break;
             case 4:
-                free(ps); // Free allocated memory
+                free(ps);
                 return 0;
             default:
                 printf("Invalid choice. Please try again.\n");
@@ -117,34 +117,31 @@ void roundRobin(int processes[][7], int n, int quantum) {
     int remainingBurst[n];
     int time = 0;
     int completed = 0;
-    int queue[n], front = 0, rear = -1;
-    int queueSize = 0;
 
     for (int i = 0; i < n; i++) remainingBurst[i] = processes[2][i];
 
-    for (int i = 0; i < n; i++) queue[++rear] = i;
-    queueSize = n;
-
     while (completed < n) {
-        if (queueSize == 0) break;
-        int i = queue[front++];
-        queueSize--;
-        if (front >= n) front = 0;
-
-        if (remainingBurst[i] > quantum) {
-            remainingBurst[i] -= quantum;
-            time += quantum;
-            queue[++rear] = i;
-            if (rear >= n) rear = 0;
-            queueSize++;
-        } else {
-            time += remainingBurst[i];
-            processes[4][i] = time;
-            processes[6][i] = processes[4][i] - processes[1][i];
-            processes[5][i] = processes[6][i] - processes[2][i];
-            remainingBurst[i] = 0;
-            completed++;
+        // checking for all incomplete processes
+        int flag = 0;
+        for (int i = 0; i < n; i++) {
+        if (processes[1][i] <= time && remainingBurst[i] > 0)
+        {
+            flag = 1;
+            if (processes[3][i] == 0) processes[3][i] = time;
+            if (remainingBurst[i] > quantum) {
+                remainingBurst[i] -= quantum;
+                time += quantum;
+            } else {
+                time += remainingBurst[i];
+                processes[4][i] = time;
+                processes[6][i] = processes[4][i] - processes[1][i]; // Turnaround time = finish time - arrival time
+                processes[5][i] = processes[6][i] - processes[2][i]; // Waiting time = turnaround time - burst time
+                remainingBurst[i] = 0;
+                completed++;
+            }
         }
+    }
+    if(!flag) time++;
     }
 }
 

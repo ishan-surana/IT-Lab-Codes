@@ -3,7 +3,6 @@ from Crypto.Util.number import bytes_to_long
 import socket
 import pickle
 
-# Generate RSA keys
 key = RSA.generate(2048)
 n, e, d = key.n, key.e, key.d
 public_key = key.publickey()
