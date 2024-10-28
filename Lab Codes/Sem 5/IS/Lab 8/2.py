@@ -55,7 +55,7 @@ inverted_index = create_inverted_index(documents)
 public_key, private_key = generate_keypair()
 encrypted_index = {word: [encrypt(public_key, doc_id) for doc_id in doc_ids] for word, doc_ids in inverted_index.items()}
 
-search_query = "To be"
+search_query = input("Enter search query (for eg: 'to be'): ")
 doc_ids = search(search_query, encrypted_index, public_key)
 for doc_id in doc_ids:
     print(f"Document {doc_id}: {documents[doc_id]}")

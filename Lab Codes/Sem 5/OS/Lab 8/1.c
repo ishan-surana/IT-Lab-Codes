@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include<stdlib.h>
 
 void bankers(int num, int rescount, int (*matrix)[3*rescount+1], int *available)
 {

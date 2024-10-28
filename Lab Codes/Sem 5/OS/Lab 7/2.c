@@ -4,9 +4,9 @@
 #include <semaphore.h>
 #include <unistd.h>
 
-#define NUM_READERS 5
-#define NUM_WRITERS 3
-#define MAX_ITERATIONS 10 // Limit for reads and writes
+#define NUM_READERS 3
+#define NUM_WRITERS 2
+#define MAX_ITERATIONS 3 // Limit for reads and writes
 
 sem_t rw_mutex;  // Controls access to the resource
 sem_t mutex;     // Protects the count of readers

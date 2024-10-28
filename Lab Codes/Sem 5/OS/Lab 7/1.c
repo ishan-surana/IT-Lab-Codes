@@ -42,6 +42,8 @@ void *consume(void * arg)
 
 int main(int argc, const char * argv[])
 {
+    sem_init(&pmutex, 0, 1);
+    sem_init(&cmutex, 0, 1);
     in=1, out=1;
     int i, NumThreads;
     sem_post(&pmutex);

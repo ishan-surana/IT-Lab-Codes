@@ -28,6 +28,7 @@ if cipher=='a':
 elif cipher=='b':
     ciphertext = ""
     key = alphabet[(7-1)] + message[:-1]
+    print(key)
     for i in range(len(message)):
         if message[i]==" ":
             ciphertext+=" "
