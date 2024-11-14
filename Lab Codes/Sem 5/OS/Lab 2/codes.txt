@@ -19,9 +19,11 @@ cat texts.txt | grep -E "[0-9]" > has_numbers.txt
 
 cat studentInformation.txt | cut -d ":" -f 3| grep ICT | wc -l
 cat studentInformation.txt | sed -e "s/IT/Information Technology/" > ITStudents.txt
-cat studentInformation.txt | grep "1234:" | cut -d ":" -f 6-8 | tr ':' '+' | sed 's/$/)\/3/; s/^/(/' | bc
+cat studentInformation.txt | grep 1234  | cut -d ":" -f 6-8 | tr : + | bc | sed "s/$/\/3/" | bc
+# cat studentInformation.txt | grep "1234:" | cut -d ":" -f 6-8 | tr ':' '+' | sed 's/$/)\/3/; s/^/(/' | bc
 # cat studentInformation.txt | grep "1234:" | cut -d ":" -f 6-8 | awk -F: '{print($1+$2+$3)/3}'
-head -n 1 studentInformation.txt | tr [a-z] [A-Z] ; tail -n +2 studentInformation.txt
+cat studentInformation.txt | sed '1s/.*/\U&/'
+# head -n 1 studentInformation.txt | tr [a-z] [A-Z] ; tail -n +2 studentInformation.txt
 # sed -n '1s/.*/\U&/p;2,$p' studentInformation.txt       # awk 'NR==1 {print toupper($0); next} {print}' studentInformation.txt
 
 grep -l "MIT" ./*; grep "MIT" ./* | sed -e "s/MIT/Manipal Institute of Technology/g"

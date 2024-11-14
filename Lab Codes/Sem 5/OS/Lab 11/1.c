@@ -3,7 +3,7 @@
 #include <math.h>
 
 int dist(int a, int b) {
-    return a>b?a-b:b-a; 
+    return abs(a-b);
 }
 
 void fcfs(int requests[], int nr, int head) {
